@@ -5,4 +5,4 @@ Accurate information from both sides of the contemporary issues is known to be a
 The [paper](https://scholar.google.com/scholar?oi=bibs&cluster=15851993829066285975&btnI=1&hl=en) is accepeted at SBP-BRiMS 2019.
 ### Dataset: 
 
-The procon dataset is purely for academic/research use and not for commercial purposes. Rights to the data belong to [procon.org](http://procon.org/) as they hosted the data.
+**The procon dataset is purely for academic/research use and not for commercial purposes. Rights to the data belong to [procon.org](http://procon.org/) as they hosted the data.**
