@@ -455,16 +455,16 @@ def my_main(PATH=None, ds=None, train_lm=False, train_model=False):
     if train_model:
         lr = 3e-3
         lrm = 2.6
-        lrs = np.array([lr / (lrm ** 4), lr / (lrm ** 3), lr / (lrm ** 2), lr / lrm, lr])
-        lrs = np.array([1e-4, 1e-4, 1e-4, 1e-3, 1e-2])
+        #lrs = np.array([lr / (lrm ** 4), lr / (lrm ** 3), lr / (lrm ** 2), lr / lrm, lr])
+        #lrs = np.array([1e-4, 1e-4, 1e-4, 1e-3, 1e-2])
         lrs = np.array([1e-4, 1e-4, 1e-4, 1e-4, 1e-4, 1e-4, 1e-3, 1e-3, 1e-2]) #org
         #lrs = np.array([1e-2 for _ in range(9)])
         wd = 1e-7
         #wd = 0
         my_cb = SaveBestModel(learn, lrs, name='best_model')
-        #learn.load_encoder('lm_enc')
+        learn.load_encoder('lm_enc')
         learn.freeze_to(-1)
-        #learn.lr_find(lrs / 1000)
+        learn.lr_find(lrs / 1000)
         #learn.sched.plot()
         learn.fit(lrs, 1, wds=wd, cycle_len=1, use_clr=(8, 3))
 
@@ -578,11 +578,14 @@ if __name__ == "__main__":
     np.random.seed(1337)
     torch.cuda.manual_seed_all(1377)
 
-    for i in range(5):
-        PATH = Path('data')
-        print(str(PATH))
-        results = []
-        my_main(PATH, 'arg_quot', train_lm=False, train_model=True)
+	PATH = Path('data')
+	print(str(PATH))
+	results = []
+	# fine-tune the language model:
+	my_main(PATH, 'arg_quot', train_lm=True, train_model=False)
+	
+	#train the whole model	
+	my_main(PATH, 'arg_quot', train_lm=False, train_model=True)
 
 
 
