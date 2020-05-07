@@ -3,7 +3,7 @@ soh = "\x02"
 import sys
 import subprocess
 
-sys.path.insert(0, "/marjan/fastai")
+sys.path.insert(0, "/fastai")
 from fastai.text import *
 from procon_ai_utils import *
 from procon_ai_mydataloader import MyDataLoader
@@ -579,7 +579,7 @@ if __name__ == "__main__":
     torch.cuda.manual_seed_all(1377)
 
     for i in range(5):
-        PATH = Path('/marjan/me/me/project/procon_ai/data/idomain')
+        PATH = Path('data')
         print(str(PATH))
         results = []
         my_main(PATH, 'arg_quot', train_lm=False, train_model=True)
