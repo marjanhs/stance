@@ -13,6 +13,14 @@ The paper is accepeted at SBP-BRiMS 2019. [Preprint version](https://easychair.o
 
 Please contact me (![email:](https://raw.githubusercontent.com/marjanhs/stance/master/email.png)) to request the dataset!
 
+## Requirements
+
+-fastai 2018 release ([version 1-.0.6](https://github.com/fastai/fastai/tree/release-1.0.6) or later in [2018](https://github.com/fastai/fastai/branches))
+
+-nltk
+
+-PyTorch
+
 
 ### Preprocessing
 
