@@ -12,3 +12,12 @@ The paper is accepeted at SBP-BRiMS 2019. [Preprint version](https://easychair.o
 
 
 Please contact me (![email:](https://raw.githubusercontent.com/marjanhs/stance/master/email.png)) to request the dataset!
+
+
+### Preprocessing
+
+`procon_ai_utils.py` converts the dataset files to token and  token-id files and creates the itos/stoi files.
+
+### Model
+
+`__main__.py` fine-tunes pre-trained language model by fastai, trains and evalates the model
