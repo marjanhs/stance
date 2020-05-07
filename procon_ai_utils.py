@@ -778,25 +778,34 @@ def eval(file_gold, file_pred, evalscript="eval.pl"):
     pipe.communicate()
 
 if __name__=="__main__":
-    root = Path('/marjan/me/me/project/procon_ai/data/twitter')
+    
+	# Twitter data
+	'''root = Path('data/twitter')
     PATH_CLS = root / 'twitter_clas'
     root.mkdir(exist_ok=True)
+	ds = ['twitter']'''
 
-    # IBM
+    # IBM data
     '''ibm_to_procon(root / 'claim_stance_dataset_v1.json', root)
     create_train_val_ibm(root)
     d = "ibm"
     save_tokens(root, d, type=None, features=None, ibm=True)
     save_ids(root, d, type=None, features=None)'''
+	
+	# Procon2019 data
+	root = Path('data/procon')
+    PATH_CLS = root / 'arg_quot_clas'
+    root.mkdir(exist_ok=True)
+	ds = ['arg_quot']
 
 
-    ds = ['twitter']
+
 
 
     for d in ds:
         #features = {'sentiment': 'sent_KL_top20.pkl'}
-        save_tokens(root, d, type='twitter', features=None, sentence_tok=False, sets=['train', 'val', 'tst'])
-        save_ids(root, d, type=None, features=None, sets=['train', 'val', 'tst'])
+        #save_tokens(root, d, type='twitter', features=None, sentence_tok=False, sets=['train', 'val', 'tst'])
+        #save_ids(root, d, type=None, features=None, sets=['train', 'val', 'tst'])
 
         #to_glove_word_index(PATH_CLS / 'tok_train_sentiment.npy', PATH_CLS)
         #to_ids_bool_sent(PATH_CLS)
@@ -805,7 +814,7 @@ if __name__=="__main__":
         #save_tokens_twocontext(root, d, type=None, features=None)
         #save_ids(root, d, type=None, features=None, is_twocontext=True)
 
-        #save_tokens(root, d, type=None, features=None, sentence_tok=True)
-        #save_ids(root, d, type=None, features=None, sentence_tok=True)
+        save_tokens(root, d, type=None, features=None, sentence_tok=True)
+        save_ids(root, d, type=None, features=None, sentence_tok=True)
 
 
